@@ -7,12 +7,32 @@
 
 
 <body style="background-color: lightgoldenrodyellow">
-<h3>Вход</h3>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+<div id="header" class="span12" style ="height:50px; font-weight:bold; font-style :normal ;font-size:20px;">
+<header style = "background-color:peachpuff; height:100px; text-align:center; color:orangered;">
+    <h1>  МАГАЗИН </h1>
+</header>
+
+
+<br>
+<br>
+<div style="width:300px; margin-left:50%;">
+    <p center>Вход</p>
+    <br>
+    <br>
+</div>
+    <div style="width:90%; margin-left:45%;">
 <form method="post" action="/process_login">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <label for="username">Введите логин: </label>
     <input type="text" placeholder="Введите пароль" name="username" id="username">
     <br>
+
     <label for="password">Введите пароль: </label>
     <input type="password" placeholder="Введите пароль" name="password" id="password">
     <br>
@@ -26,6 +46,6 @@
 <br>
 <br>
 <a href="/product">Просмотр товаров</a>
-
+</div>
 </body>
 </html>
