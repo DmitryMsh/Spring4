@@ -86,7 +86,7 @@ public class MainController {
                 model.addAttribute("search_product", productRepository.findByTitleAndPriceGreaterThanEqualAndPriceLessThan(search.toLowerCase(), Float.parseFloat(ot), Float.parseFloat(Do)));
             }
         } else {
-            model.addAttribute("search_product",productRepository.findByTitleContaining(search));
+            model.addAttribute("search_product",productRepository.findByTitleContainingIgnoreCase(search));
         }
         model.addAttribute("value_search", search);
         model.addAttribute("value_price_ot", ot);
@@ -97,8 +97,6 @@ public class MainController {
         model.addAttribute("appliances",category);
         model.addAttribute("clothes",category);
         model.addAttribute("products", productService.getAllProduct());
-
-
         return "/product/product";
     }
 }

@@ -3,7 +3,6 @@ package com.example.springsecurityapplication.repositories;
 import com.example.springsecurityapplication.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     Optional<Product> findByTitle(String title);
     // Поиск по части наименования товара в не зависимости от регистра
-    List<Product> findByTitleContaining(String name);
+    List<Product> findByTitleContainingIgnoreCase(String name);
 
     // Поиск по части наименования товара и фильтрация по диапазону цен
     @Query(value = "select * from product where (((lower(title) LIKE (%?1%)) or (lower(title) LIKE '?1%') or (lower(title) LIKE '%?1')) and ((price >= (?2)) and (price <= (?3))))", nativeQuery = true)
