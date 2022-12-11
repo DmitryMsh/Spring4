@@ -5,7 +5,7 @@
     <title>Информация о товаре</title>
 </head>
 <body style="background-color: lightgoldenrodyellow">
-<a href="/auth/login">Назад</a>
+<a href="/index">Назад</a>
     <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
     <p th:text="'Описание: ' + ${product.getDescription()}"></p>
     <p th:text="'Цена: ' + ${product.getPrice()}"></p>
@@ -13,7 +13,10 @@
     <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
     <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
     <div th:each="img : ${product.getImageList()}">
+
         <img th:src="'/img/' + ${img.getFileName()}" width="300px">
+        <br>
+        <br>
         <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
     </div>
 </body>

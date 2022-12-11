@@ -11,9 +11,10 @@
 <p th:text="'Склад: ' + ${product.getWarehouse()}"></p>
 <p th:text="'Продавец: ' + ${product.getSeller()}"></p>
 <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
-
+<br>
 <div th:each="img : ${product.getImageList()}">
     <img th:src="'/img/' + ${img.getFileName()}" width="300px">
+    <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
 </div>
 </body>
 </html>

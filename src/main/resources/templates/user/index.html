@@ -60,7 +60,10 @@
     <br>
     <br>
     <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+    <br>
+    <br>
     <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
 </div>
 <hr>
 <h3>Доступные товары: </h3>
@@ -69,6 +72,8 @@
     <br>
     <br>
     <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}" id="title"></a>
+    <br>
+    <br>
     <p th:text="'Цена: ' + ${product.getPrice()}"></p>
     <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
 </div>

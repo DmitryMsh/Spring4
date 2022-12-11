@@ -5,6 +5,7 @@
     <title>Список товаров: </title>
 </head>
 <body style="background-color: lightgoldenrodyellow">
+<a href="/index">Назад</a>
 <form th:method="POST" th:action="@{/product/search}">
 <fieldset>
     <legend>Выберите параметры для сортировки, поиска, фильтрации</legend>
@@ -35,7 +36,7 @@
     <br>
     <br>
     <input type="radio" id="clothes" name="category" value="clothes">
-    <label for="clothes">Одежка</label>
+    <label for="clothes">Одежда</label>
     <br>
     <br>
     <input type="submit" value="Найти">
@@ -45,17 +46,24 @@
 <h3>Результат: </h3>
 <div th:each="product : ${search_product}">
     <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+    <br>
+    <br>
     <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
     <br>
     <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <br>
+    <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
 </div>
 <hr>
 <h3>Доступные товары: </h3>
 <div th:each="product : ${products}">
     <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+    <br>
+    <br>
     <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}" id="title"></a>
     <br>
     <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <br>
     <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
 </div>
 </body>
