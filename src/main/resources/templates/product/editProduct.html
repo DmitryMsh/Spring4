@@ -5,6 +5,7 @@
     <title>Редактирование товара</title>
 </head>
 <body style="background-color: lightgoldenrodyellow">
+<a href="/index">Назад</a>
 <h3>Редактирование товара</h3>
 <form th:method="POST" th:action="@{/admin/product/edit/{id}(id=${editProduct.getId()})}" th:object="${editProduct}">
     <label for="title">Введите наименование: </label>

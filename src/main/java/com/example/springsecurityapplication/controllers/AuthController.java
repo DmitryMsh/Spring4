@@ -23,6 +23,7 @@ public class AuthController {
 
     private final PersonService personService;
 
+
     @Autowired
     public AuthController(PersonValidator personValidator, PersonService personService) {
         this.personValidator = personValidator;
